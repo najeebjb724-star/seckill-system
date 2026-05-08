@@ -1,0 +1,21 @@
+# Go build output
+*.exe
+*.test
+*.out
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/

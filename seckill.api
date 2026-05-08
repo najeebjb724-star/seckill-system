@@ -1,0 +1,41 @@
+info (
+	title: "秒杀系统"
+	desc:  "Go-zero 后端秒杀系统，支持活动创建、秒杀、查询订单"
+)
+
+type ActivityRequest {
+	name       string
+	stock      int
+	start_time string
+	end_time   string
+}
+
+type SeckillRequest {
+	user_id     int
+	activity_id int
+}
+
+type OrderStatusRequest {
+	user_id     int
+	activity_id int
+}
+
+type IdResponse {
+	id int
+}
+
+type MsgResponse {
+	msg string
+}
+
+service seckill-api {
+	@handler createActivity
+	post /activity/create (ActivityRequest) returns (IdResponse)
+
+	@handler doSeckill
+	post /seckill (SeckillRequest) returns (MsgResponse)
+
+	@handler queryOrderStatus
+	get /order/status (OrderStatusRequest) returns (MsgResponse)
+}
+
